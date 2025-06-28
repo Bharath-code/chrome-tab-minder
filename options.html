@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Focus Mode Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12,6 12,12 16,14"/>
+        </svg>
+        <div>
+          <h1>Focus Mode Settings</h1>
+          <p>Customize your focus experience</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="settings-section">
+        <h2>General Settings</h2>
+        
+        <div class="setting-item">
+          <div class="setting-info">
+            <label for="closeOnTimerEnd">Close tab when timer ends</label>
+            <p>Automatically close the current tab when the focus timer expires</p>
+          </div>
+          <div class="setting-control">
+            <input type="checkbox" id="closeOnTimerEnd" class="toggle-checkbox">
+            <label for="closeOnTimerEnd" class="toggle-label"></label>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-info">
+            <label for="showWarnings">Show warning before closing tabs</label>
+            <p>Display a confirmation dialog before closing additional tabs</p>
+          </div>
+          <div class="setting-control">
+            <input type="checkbox" id="showWarnings" class="toggle-checkbox" checked>
+            <label for="showWarnings" class="toggle-label"></label>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-info">
+            <label for="handlePinnedTabs">Respect pinned tabs</label>
+            <p>Allow pinned tabs to remain open even in focus mode</p>
+          </div>
+          <div class="setting-control">
+            <input type="checkbox" id="handlePinnedTabs" class="toggle-checkbox" checked>
+            <label for="handlePinnedTabs" class="toggle-label"></label>
+          </div>
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h2>Website Whitelist</h2>
+        <p class="section-description">
+          Add websites that should always be allowed to open, even in focus mode. 
+          Enter domain names or URLs (e.g., gmail.com, docs.google.com).
+        </p>
+        
+        <div class="whitelist-controls">
+          <div class="input-group">
+            <input type="text" id="whitelistInput" placeholder="Enter website (e.g., gmail.com)">
+            <button id="addToWhitelist" class="add-btn">Add</button>
+          </div>
+        </div>
+
+        <div class="whitelist-container">
+          <div id="whitelistItems" class="whitelist-items">
+            <!-- Whitelist items will be populated here -->
+          </div>
+          <div id="emptyWhitelist" class="empty-state">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+              <path d="M3 6h18l-2 13H5L3 6z"/>
+              <path d="M3 6L2 2H1"/>
+            </svg>
+            <p>No whitelisted websites</p>
+            <span>Add websites that should always be accessible</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h2>Default Timer Presets</h2>
+        <p class="section-description">
+          Customize the preset timer durations shown in the popup.
+        </p>
+        
+        <div class="preset-grid">
+          <div class="preset-item">
+            <label>Preset 1</label>
+            <input type="number" id="preset1" min="1" max="480" value="25">
+            <span>minutes</span>
+          </div>
+          <div class="preset-item">
+            <label>Preset 2</label>
+            <input type="number" id="preset2" min="1" max="480" value="45">
+            <span>minutes</span>
+          </div>
+          <div class="preset-item">
+            <label>Preset 3</label>
+            <input type="number" id="preset3" min="1" max="480" value="60">
+            <span>minutes</span>
+          </div>
+          <div class="preset-item">
+            <label>Preset 4</label>
+            <input type="number" id="preset4" min="1" max="480" value="90">
+            <span>minutes</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h2>Statistics</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" id="totalFocusTime">0h 0m</div>
+            <div class="stat-label">Total Focus Time</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="sessionsCompleted">0</div>
+            <div class="stat-label">Sessions Completed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="tabsClosed">0</div>
+            <div class="stat-label">Tabs Closed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="longestSession">0m</div>
+            <div class="stat-label">Longest Session</div>
+          </div>
+        </div>
+        
+        <div class="stats-actions">
+          <button id="resetStats" class="reset-btn">Reset Statistics</button>
+          <button id="exportData" class="export-btn">Export Data</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="save-status">
+        <span id="saveStatus">All changes saved automatically</span>
+      </div>
+      <div class="version">
+        Version 1.0.0
+      </div>
+    </footer>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

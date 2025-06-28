@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12,6 12,12 16,14"/>
+        </svg>
+        <h1>Focus Mode</h1>
+      </div>
+      <div class="status-indicator" id="statusIndicator">
+        <div class="status-dot" id="statusDot"></div>
+        <span id="statusText">Inactive</span>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="focus-toggle">
+        <button id="toggleFocus" class="toggle-btn">
+          <span id="toggleText">Enable Focus Mode</span>
+        </button>
+      </div>
+
+      <div class="timer-section" id="timerSection">
+        <div class="timer-display" id="timerDisplay">
+          <div class="time-remaining" id="timeRemaining">00:00</div>
+          <div class="timer-label">Remaining</div>
+        </div>
+
+        <div class="timer-controls">
+          <div class="preset-times">
+            <button class="preset-btn" data-minutes="25">25m</button>
+            <button class="preset-btn" data-minutes="45">45m</button>
+            <button class="preset-btn" data-minutes="60">60m</button>
+            <button class="preset-btn" data-minutes="90">90m</button>
+          </div>
+
+          <div class="custom-timer">
+            <div class="input-group">
+              <input type="number" id="customMinutes" min="1" max="480" placeholder="30">
+              <label for="customMinutes">minutes</label>
+            </div>
+            <button id="startCustomTimer" class="start-btn">Start Timer</button>
+          </div>
+
+          <button id="stopTimer" class="stop-btn" style="display: none;">Stop Timer</button>
+        </div>
+      </div>
+
+      <div class="quick-actions">
+        <button id="openOptions" class="action-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v6m0 8v6m11-9h-6m-8 0H1"/>
+          </svg>
+          Settings
+        </button>
+        <button id="showStats" class="action-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3v18h18"/>
+            <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+          </svg>
+          Stats
+        </button>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>Stay focused, stay productive</p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
